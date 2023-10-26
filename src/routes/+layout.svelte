@@ -1,5 +1,5 @@
 <script lang="ts">
-  import "../app.css";
+  import "../app.postcss";
   import "@fontsource/vt323";
 </script>
 
