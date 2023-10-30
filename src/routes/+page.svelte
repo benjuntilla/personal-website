@@ -2,22 +2,10 @@
   import App from "$lib/components/App.svelte";
 </script>
 
-<div>
-  <h1 class="text-3xl">🚧 Sorry, the rest of this site is under construction! 🚧</h1>
-
-  <div>
-    <App />
+<div class="w-full h-full bg-gradient-to-b from-one to-two">
+  <div class="absolute top-[150px] left-[50px]">
+    <h1 class="text-[16rem] font-pixel">BEN JUNTILLA</h1>
+    <h1 class="text-[8rem] leading-[20rem]">software developer</h1>
   </div>
+  <App />
 </div>
-
-<style>
-  :global(body) {
-    margin: 0;
-  }
-  div {
-    width: 100vw;
-    height: 100vh;
-    background: rgb(13, 19, 32);
-    background: linear-gradient(180deg, rgba(13, 19, 32, 1) 0%, rgba(8, 12, 21, 1) 100%);
-  }
-</style>
