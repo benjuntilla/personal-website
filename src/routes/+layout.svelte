@@ -5,7 +5,7 @@
   import "@fontsource/vt323";
 </script>
 
-<AppShell>
+<AppShell slotPageContent="m-10 flex justify-center h-screen">
   <svelte:fragment slot="header">
     <AppBar>
       <TabGroup
@@ -18,16 +18,16 @@
         class="bg-surface-100-800-token w-full"
       >
         <TabAnchor href="/" selected={$page.url.pathname === "/"}>
-          <span>Home</span>
+          <span>home</span>
         </TabAnchor>
         <TabAnchor href="/portfolio" selected={$page.url.pathname === "/portfolio"}>
-          <span>Portfolio</span>
+          <span>portfolio</span>
         </TabAnchor>
         <TabAnchor href="/blog" selected={$page.url.pathname === "/blog"}>
-          <span>Blog</span>
+          <span>blog</span>
         </TabAnchor>
         <TabAnchor href="/about" selected={$page.url.pathname === "/about"}>
-          <span>About</span>
+          <span>about</span>
         </TabAnchor>
         <!-- ... -->
       </TabGroup>

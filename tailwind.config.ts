@@ -14,10 +14,6 @@ export default {
       fontFamily: {
         pixel: ["VT323"],
       },
-      colors: {
-        one: "rgba(13, 19, 32, 1)",
-        two: "rgba(8, 12, 21, 1)",
-      },
     },
   },
   plugins: [
