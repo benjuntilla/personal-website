@@ -5,7 +5,7 @@
   import "@fontsource/vt323";
 </script>
 
-<AppShell slotPageContent="m-10 flex justify-center h-screen">
+<AppShell slotPageContent="flex justify-center h-screen m-[2%]">
   <svelte:fragment slot="header">
     <AppBar>
       <TabGroup
