@@ -17,7 +17,7 @@
 <div class="flex flex-wrap justify-center px-[15rem]">
   {#each projects as project}
     <a
-      class="flex flex-col card card-hover overflow-hidden flex-initial w-[20rem] h-shrink m-6"
+      class="flex flex-col card card-hover overflow-hidden flex-initial w-[20rem] m-6 h-max"
       href={project.html_url}
       target="_blank"
       rel="noreferrer noopener"
@@ -43,7 +43,7 @@
         </article>
       </div>
       <footer class="mt-auto">
-        <hr class="mt-auto opacity-50" />
+        <hr class="opacity-50" />
         <div class="p-4 flex justify-start items-center space-x-4">
           <div class="flex-auto flex justify-between items-center">
             <h6 class="font-bold" data-toc-ignore>{project.stargazers_count} stars</h6>
