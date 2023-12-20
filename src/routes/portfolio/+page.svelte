@@ -4,25 +4,21 @@
   import Loading from "$lib/components/Loading.svelte";
   import { fetchGithubRepos } from "$lib/github";
   import type { Repo } from "$lib/github";
-  import ProjectCard from "$lib/components/ProjectCard.svelte";
+  import RepoCards from "$lib/components/RepoCards.svelte";
 
   // Use a store to prevent the loading component from flashing on every navigation
-  const projectsStore = writable(Promise.resolve<Repo[]>([]));
+  const reposStore = writable(Promise.resolve<Repo[]>([]));
 
   onMount(async () => {
-    const projects = await fetchGithubRepos();
-    projectsStore.set(Promise.resolve(projects));
+    const repos = await fetchGithubRepos();
+    reposStore.set(Promise.resolve(repos));
   });
 </script>
 
-{#await $projectsStore}
+{#await $reposStore}
   <Loading />
-{:then projects}
-  <div class="flex flex-wrap justify-center px-[15rem]">
-    {#each projects as project}
-      <ProjectCard {project} />
-    {/each}
-  </div>
+{:then repos}
+  <RepoCards {repos} />
 {:catch error}
   <p>Failed to load projects: {error.message}</p>
 {/await}

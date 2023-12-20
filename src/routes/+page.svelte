@@ -1,6 +1,7 @@
 <script lang="ts">
   import App from "$lib/components/App.svelte";
   import { LinkedinSolid, GithubSolid, InfoCircleOutline } from "flowbite-svelte-icons";
+  import { typewriter } from "$lib/animations";
 </script>
 
 <div class="w-full h-full">
@@ -13,10 +14,12 @@
       BEN JUNTILLA
     </h1>
     <h1 class="text-[5cqw] leading-[5cqw]">
-      <span
+      <p
+        in:typewriter={{}}
         class="bg-gradient-to-br from-pink-500 to-violet-500 bg-clip-text text-transparent box-decoration-clone"
-        >software developer</span
       >
+        software developer
+      </p>
     </h1>
 
     <div class="justify-center mt-[5%] lg:mt-[15%] logo-cloud grid-cols-1 lg:!grid-cols-3 gap-1">

@@ -3,9 +3,14 @@
   import { AppBar, AppShell, TabAnchor, TabGroup } from "@skeletonlabs/skeleton";
   import { page } from "$app/stores";
   import "@fontsource/vt323";
+  import { fade } from "svelte/transition";
+
+  export let data;
+
+  const TRANSITION_TIME = 200;
 </script>
 
-<AppShell slotPageContent="flex justify-center m-[2%]">
+<AppShell slotPageContent="m-[2%]">
   <svelte:fragment slot="header">
     <AppBar gridColumns="3" gap="5rem">
       <TabGroup
@@ -29,9 +34,15 @@
         <TabAnchor href="/about" selected={$page.url.pathname === "/about"}>
           <span>about</span>
         </TabAnchor>
-        <!-- ... -->
       </TabGroup>
     </AppBar>
   </svelte:fragment>
-  <slot />
+  {#key data.pathname}
+    <div
+      in:fade={{ duration: TRANSITION_TIME, delay: TRANSITION_TIME }}
+      out:fade={{ duration: TRANSITION_TIME }}
+    >
+      <slot />
+    </div>
+  {/key}
 </AppShell>
