@@ -1,26 +1,16 @@
 <script lang="ts">
   import type { Repo } from "$lib/github";
-  import { onMount } from "svelte";
   import { fade } from "svelte/transition";
 
   export let repos: Repo[];
 
   const TRANSITION_TIME = 200;
-
-  let reposDelayed: Repo[] = [];
-
-  onMount(async () => {
-    // Introduce a slight delay before setting the repos array to trigger the fade in
-    setTimeout(() => {
-      reposDelayed = repos;
-    }, 0);
-  });
 </script>
 
 <div class="flex flex-wrap justify-center px-[15rem]">
-  {#each reposDelayed as repo, i}
+  {#each repos as repo, i}
     <a
-      in:fade={{ duration: TRANSITION_TIME, delay: TRANSITION_TIME * 0.5 * i }}
+      in:fade|global={{ duration: TRANSITION_TIME, delay: TRANSITION_TIME * 0.5 * i }}
       class="flex flex-col card card-hover overflow-hidden flex-initial w-[20rem] m-6 h-max"
       href={repo.html_url}
       target="_blank"
