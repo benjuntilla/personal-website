@@ -1,56 +1,28 @@
 <script lang="ts">
-  import type { Repo } from "$lib/github";
-  import { fetchGithubRepos } from "$lib/github";
+  import { writable } from "svelte/store";
   import { onMount } from "svelte";
+  import Loading from "$lib/components/Loading.svelte";
+  import { fetchGithubRepos } from "$lib/github";
+  import type { Repo } from "$lib/github";
+  import ProjectCard from "$lib/components/ProjectCard.svelte";
 
-  let projects: Repo[] = [];
+  // Use a store to prevent the loading component from flashing on every navigation
+  const projectsStore = writable(Promise.resolve<Repo[]>([]));
 
   onMount(async () => {
-    try {
-      projects = await fetchGithubRepos();
-    } catch (error) {
-      console.error("Failed to fetch projects:", error);
-    }
+    const projects = await fetchGithubRepos();
+    projectsStore.set(Promise.resolve(projects));
   });
 </script>
 
-<div class="flex flex-wrap justify-center px-[15rem]">
-  {#each projects as project}
-    <a
-      class="flex flex-col card card-hover overflow-hidden flex-initial w-[20rem] m-6 h-max"
-      href={project.html_url}
-      target="_blank"
-      rel="noreferrer noopener"
-    >
-      <header class="card-header">
-        <img
-          src="https://avatars.githubusercontent.com/u/46634820?v=4"
-          class="w-full aspect-[21/9] object-scale-down"
-          alt="Ben Juntilla avatar"
-        />
-      </header>
-      <div class="p-4 space-y-4">
-        <h3 class="h3" data-toc-ignore>{project.name}</h3>
-        <div class="flex flex-row flex-wrap -m-1">
-          {#each project.languages as language}
-            <span class="chip variant-ghost m-1">{language}</span>
-          {/each}
-        </div>
-        <article>
-          <p>
-            {project.description}
-          </p>
-        </article>
-      </div>
-      <footer class="mt-auto">
-        <hr class="opacity-50" />
-        <div class="p-4 flex justify-start items-center space-x-4">
-          <div class="flex-auto flex justify-between items-center">
-            <h6 class="font-bold" data-toc-ignore>{project.stargazers_count} stars</h6>
-            <small>Created on {project.created_at_date.toLocaleDateString()}</small>
-          </div>
-        </div>
-      </footer>
-    </a>
-  {/each}
-</div>
+{#await $projectsStore}
+  <Loading />
+{:then projects}
+  <div class="flex flex-wrap justify-center px-[15rem]">
+    {#each projects as project}
+      <ProjectCard {project} />
+    {/each}
+  </div>
+{:catch error}
+  <p>Failed to load projects: {error.message}</p>
+{/await}
