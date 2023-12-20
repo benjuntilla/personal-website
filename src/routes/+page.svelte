@@ -4,6 +4,10 @@
   import { typewriter } from "$lib/animations";
 </script>
 
+<svelte:head>
+  <title>Ben Juntilla</title>
+</svelte:head>
+
 <div class="w-full h-full">
   <div class="absolute inset-0 z-[-1]">
     <App />

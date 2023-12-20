@@ -1,3 +1,7 @@
+<svelte:head>
+  <title>About</title>
+</svelte:head>
+
 <div class="w-full grid place-content-center">
   <article class="prose lg:prose-xl dark:prose-invert">
     <h1>about</h1>
