@@ -15,18 +15,23 @@
 
   <div class="relative h-max mx-[2%] flex flex-col" style:container-type="inline-size">
     <h1 class="text-[18cqw] leading-[18cqw] lg:text-[10cqw] lg:leading-[10cqw] font-pixel">
-      BEN JUNTILLA
+      <span
+        class="bg-gradient-to-br from-white to-surface-300 bg-clip-text text-transparent box-decoration-clone"
+        >BEN JUNTILLA</span
+      >
     </h1>
-    <h1 class="text-[5cqw] leading-[5cqw]">
-      <p
+    <h1 class="text-[6cqw] leading-[6cqw] lg:text-[4cqw] lg:leading-[4cqw]">
+      <span
         in:typewriter={{}}
-        class="bg-gradient-to-br from-pink-500 to-violet-500 bg-clip-text text-transparent box-decoration-clone"
+        class="bg-gradient-to-br from-pink-500 to-violet-500 bg-clip-text text-transparent box-decoration-clone font-mono"
       >
         software developer
-      </p>
+      </span>
     </h1>
 
-    <div class="justify-center mt-[5%] lg:mt-[15%] logo-cloud grid-cols-1 lg:!grid-cols-3 gap-1">
+    <div
+      class="justify-center mt-[5%] lg:mt-[15%] logo-cloud grid-cols-1 lg:!grid-cols-3 gap-1 font-mono font-bold"
+    >
       <a class="logo-item" href="/about">
         <span><InfoCircleOutline /></span>
         <span>About</span>

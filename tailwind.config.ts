@@ -13,6 +13,8 @@ export default {
     extend: {
       fontFamily: {
         pixel: ["VT323"],
+        mono: ["IBM Plex Mono"],
+        serif: ["Metropolis"],
       },
     },
   },

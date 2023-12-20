@@ -1,5 +1,7 @@
 <script lang="ts">
   import "../app.postcss";
+  import "@fontsource/ibm-plex-mono";
+  import "@fontsource/metropolis";
   import "@fontsource/vt323";
   import { AppBar, AppShell, TabAnchor, TabGroup } from "@skeletonlabs/skeleton";
   import { page } from "$app/stores";
@@ -23,7 +25,7 @@
         flex="flex-1"
         rounded=""
         border=""
-        class="bg-surface-100-800-token w-full items-stretch"
+        class="bg-surface-100-800-token w-full items-stretch font-mono font-bold"
       >
         <TabAnchor href="/" selected={$page.url.pathname === "/"}>
           <span>home</span>
