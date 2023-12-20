@@ -1,13 +1,16 @@
 <script lang="ts">
   import "../app.postcss";
+  import "@fontsource/vt323";
   import { AppBar, AppShell, TabAnchor, TabGroup } from "@skeletonlabs/skeleton";
   import { page } from "$app/stores";
-  import "@fontsource/vt323";
   import { fade } from "svelte/transition";
+  import { cubicIn, cubicOut } from "svelte/easing";
 
   export let data;
 
   const TRANSITION_TIME = 200;
+  const FADE_IN = { easing: cubicOut, duration: TRANSITION_TIME, delay: TRANSITION_TIME };
+  const FADE_OUT = { easing: cubicIn, duration: TRANSITION_TIME };
 </script>
 
 <AppShell slotPageContent="m-[2%]">
@@ -38,10 +41,7 @@
     </AppBar>
   </svelte:fragment>
   {#key data.pathname}
-    <div
-      in:fade={{ duration: TRANSITION_TIME, delay: TRANSITION_TIME }}
-      out:fade={{ duration: TRANSITION_TIME }}
-    >
+    <div in:fade={FADE_IN} out:fade={FADE_OUT}>
       <slot />
     </div>
   {/key}
