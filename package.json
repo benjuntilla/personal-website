@@ -45,6 +45,7 @@
   "dependencies": {
     "@fontsource/ibm-plex-mono": "^5.0.8",
     "@fontsource/metropolis": "^5.0.7",
-    "@fontsource/vt323": "^5.0.8"
+    "@fontsource/vt323": "^5.0.8",
+    "graphql-request": "^6.1.0"
   }
 }

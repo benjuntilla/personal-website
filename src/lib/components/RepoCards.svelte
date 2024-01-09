@@ -18,7 +18,9 @@
     >
       <header class="card-header">
         <img
-          src="https://avatars.githubusercontent.com/u/46634820?v=4"
+          src={repo.usesCustomOpenGraphImage
+            ? repo.openGraphImageUrl
+            : repo.owner.avatar_url}
           class="w-full aspect-[21/9] object-scale-down"
           alt="Ben Juntilla avatar"
         />

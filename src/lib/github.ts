@@ -1,9 +1,14 @@
 import projects from "./projects.json";
+import { gql, GraphQLClient } from "graphql-request";
 
-const GITHUB_API_URL = "https://api.github.com";
-const GITHUB_USERNAME = "benjuntilla";
+export type Owner = {
+  login: string;
+  avatar_url: string;
+}
 
 export type Repo = {
+  owner: Owner;
+  full_name: string;
   id: string;
   name: string;
   description: string;
@@ -12,33 +17,71 @@ export type Repo = {
   stargazers_count: number;
   fork: boolean;
   created_at: string;
-  created_at_date: Date;
   languages_url: string;
+
+  // Derived fields
   languages: string[];
+  created_at_date: Date;
+  openGraphImageUrl: string;
+  usesCustomOpenGraphImage: boolean;
 };
 
+const GITHUB_REST_ENDPOINT = "https://api.github.com";
+const GITHUB_GRAPHQL_ENDPOINT = "https://api.github.com/graphql";
+const GITHUB_USERNAME = "benjuntilla";
+const GITHUB_PAT = import.meta.env.VITE_GITHUB_PAT;
+
+const graphQLClient = new GraphQLClient(GITHUB_GRAPHQL_ENDPOINT, {
+  headers: {
+    authorization: `Bearer ` + GITHUB_PAT,
+  },
+})
+
 export async function fetchGithubRepos(): Promise<Repo[]> {
-  // Fetch all projects from GitHub API
-  const apiProjects = (await fetch(`${GITHUB_API_URL}/users/${GITHUB_USERNAME}/repos?per_page=100`)
+  // Fetch all repos from GitHub API
+  const apiRepos = (await fetch(`${GITHUB_REST_ENDPOINT}/users/${GITHUB_USERNAME}/repos?per_page=100`)
     .then((response) => response.json() as Promise<Repo[]>))
     .filter((project) => !project.fork && project.name !== "benjuntilla");
 
-  // Fetch projects from JSON
-  const jsonProjects = await Promise.all(projects.repos.map(async (repo) =>
-    await fetch(`${GITHUB_API_URL}/repos/${repo}`).then(response => response.json() as Promise<Repo>)));
+  // Fetch repos from JSON
+  const jsonRepos = await Promise.all(projects.repos.map(async (repo) =>
+    await fetch(`${GITHUB_REST_ENDPOINT}/repos/${repo}`).then(response => response.json() as Promise<Repo>)));
 
-  const combinedProjects = [...apiProjects, ...jsonProjects]
+  // Combine Github API & JSON repos
+  let combinedRepos = [...apiRepos, ...jsonRepos]
 
-  // Enhance projects with languages and localized creation date
+  // Enhance projects with additional metadata
   const projectsEnhanced = await Promise.all(
-    combinedProjects.map(async (project) => {
+    combinedRepos.map(async (project) => {
+      // Get languages
       const languages = await fetch(project.languages_url)
         .then((response) => response.json())
         .then((data) => Object.keys(data));
 
+      // Get localized creation date
       const created_at_date = new Date(project.created_at);
 
-      return { ...project, languages, created_at_date };
+      // Get Open Graph image URL
+      const query = gql`
+        query getRepository($owner: String!, $name: String!) {
+          repository(owner: $owner, name: $name) {
+            openGraphImageUrl
+            usesCustomOpenGraphImage
+          }
+        }
+      `
+      const variables = { owner: project.owner.login, name: project.name}
+      interface Data {
+        repository: {
+          openGraphImageUrl: string,
+          usesCustomOpenGraphImage: boolean
+        }
+      }
+      const data = await graphQLClient.request<Data>(query, variables);
+      const openGraphImageUrl = data.repository.openGraphImageUrl;
+      const usesCustomOpenGraphImage = data.repository.usesCustomOpenGraphImage;
+
+      return { ...project, languages, created_at_date, openGraphImageUrl, usesCustomOpenGraphImage };
     })
   );
 
