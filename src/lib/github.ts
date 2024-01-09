@@ -1,3 +1,5 @@
+import projects from "./projects.json";
+
 const GITHUB_API_URL = "https://api.github.com";
 const GITHUB_USERNAME = "benjuntilla";
 
@@ -17,13 +19,19 @@ export type Repo = {
 
 export async function fetchGithubRepos(): Promise<Repo[]> {
   // Fetch all projects from GitHub API
-  const projects = (await fetch(`${GITHUB_API_URL}/users/${GITHUB_USERNAME}/repos?per_page=100`)
+  const apiProjects = (await fetch(`${GITHUB_API_URL}/users/${GITHUB_USERNAME}/repos?per_page=100`)
     .then((response) => response.json() as Promise<Repo[]>))
     .filter((project) => !project.fork && project.name !== "benjuntilla");
 
+  // Fetch projects from JSON
+  const jsonProjects = await Promise.all(projects.repos.map(async (repo) =>
+    await fetch(`${GITHUB_API_URL}/repos/${repo}`).then(response => response.json() as Promise<Repo>)));
+
+  const combinedProjects = [...apiProjects, ...jsonProjects]
+
   // Enhance projects with languages and localized creation date
   const projectsEnhanced = await Promise.all(
-    projects.map(async (project) => {
+    combinedProjects.map(async (project) => {
       const languages = await fetch(project.languages_url)
         .then((response) => response.json())
         .then((data) => Object.keys(data));
