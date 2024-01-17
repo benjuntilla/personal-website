@@ -14,6 +14,11 @@
   const TRANSITION_TIME = 200;
   const FADE_IN = { easing: cubicOut, duration: TRANSITION_TIME, delay: TRANSITION_TIME };
   const FADE_OUT = { easing: cubicIn, duration: TRANSITION_TIME };
+
+  // analytics
+  import { dev } from '$app/environment';
+  import { inject } from '@vercel/analytics';
+  inject({ mode: dev ? 'development' : 'production' });
 </script>
 
 <AppShell slotPageContent="m-[2%]">
