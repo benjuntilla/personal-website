@@ -7,6 +7,7 @@
   import { page } from "$app/stores";
   import { fade } from "svelte/transition";
   import { cubicIn, cubicOut } from "svelte/easing";
+  import monitor from "$lib/img/monitor.png"
 
   export let data;
 
@@ -27,6 +28,9 @@
         border=""
         class="bg-surface-100-800-token w-full items-stretch font-mono font-bold"
       >
+        <a href="/">
+          <img alt="Monitor logo" src={monitor} class="max-h-[5vh] mx-5" />
+        </a>
         <TabAnchor href="/" selected={$page.url.pathname === "/"}>
           <span>home</span>
         </TabAnchor>
