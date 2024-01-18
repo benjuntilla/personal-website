@@ -8,6 +8,7 @@
   import { fade } from "svelte/transition";
   import { cubicIn, cubicOut } from "svelte/easing";
   import monitor from "$lib/img/monitor.png"
+  import www from "$lib/img/www.gif"
 
   export let data;
 
@@ -56,4 +57,11 @@
       <slot />
     </div>
   {/key}
+  <svelte:fragment slot="pageFooter">
+    <div class="bg-surface-100-800-token flex justify-center items-center">
+      Proud to be a part of the
+      <img src={www} alt="World Wide Web logo"
+      class="m-2 h-20" />
+    </div>
+  </svelte:fragment>
 </AppShell>

@@ -8,7 +8,7 @@
   <title>Ben Juntilla</title>
 </svelte:head>
 
-<div class="w-full h-full">
+<div class="w-full h-screen">
   <div class="absolute inset-0 z-[-1]">
     <App />
   </div>
