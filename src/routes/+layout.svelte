@@ -37,7 +37,7 @@
       >
         <a href="/">
           <img alt="Monitor logo" src={monitor} class="flex-none
-          h-[3rem] mr-5" />
+          h-[3rem] mr-5 aspect-square" />
         </a>
         <TabAnchor href="/" selected={$page.url.pathname === "/"}>
           <span>home</span>
