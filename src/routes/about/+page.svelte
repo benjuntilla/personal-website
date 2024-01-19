@@ -10,7 +10,7 @@
   <meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
-<div class="w-full h-screen flex justify-center">
+<div class="w-full h-max flex justify-center">
   <article class="prose dark:prose-invert max-w-[650px] prose-code:before:hidden prose-code:after:hidden">
     <div class="card p-10">
       <h1 class="h1">about</h1>
