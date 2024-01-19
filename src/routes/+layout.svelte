@@ -26,16 +26,18 @@
   <svelte:fragment slot="header">
     <AppBar gridColumns="3" gap="5rem">
       <TabGroup
-        justify="justify-center"
+        justify="justify-center items-center"
         active="variant-filled-primary"
         hover="hover:variant-soft-primary"
         flex="flex-1"
         rounded=""
         border=""
-        class="bg-surface-100-800-token w-full items-stretch font-mono font-bold"
+        class="bg-surface-100-800-token w-full items-stretch font-mono
+        font-bold items-center"
       >
         <a href="/">
-          <img alt="Monitor logo" src={monitor} class="max-h-[5vh] mx-5" />
+          <img alt="Monitor logo" src={monitor} class="flex-none
+          h-[3rem] mr-5" />
         </a>
         <TabAnchor href="/" selected={$page.url.pathname === "/"}>
           <span>home</span>
