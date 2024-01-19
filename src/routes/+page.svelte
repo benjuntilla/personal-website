@@ -7,9 +7,10 @@
 <svelte:head>
   <title>Ben Juntilla</title>
   <meta property="og:title" content="Ben Juntilla" />
+  <meta name="description" content="Ben Juntilla's personal website 🌟" />
+  <meta property="og:description" content="Ben Juntilla's personal website 🌟" />
   <meta property="og:site_name" content="Ben Juntilla"/>
   <meta property="og:url" content="https://benjuntilla.com"/>
-  <meta property="og:description" content="Ben Juntilla's personal website 🌟" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://benjuntilla.com/icon.png" />
   <meta name="twitter:card" content="summary_large_image" />

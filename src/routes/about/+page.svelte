@@ -1,5 +1,13 @@
 <svelte:head>
-  <title>About</title>
+  <title>Ben Juntilla's About Page</title>
+  <meta property="og:title" content="Ben Juntilla's About Page" />
+  <meta name="description" content="Ben Juntilla's about page 🌟" />
+  <meta property="og:description" content="Ben Juntilla's about page 🌟" />
+  <meta property="og:site_name" content="Ben Juntilla"/>
+  <meta property="og:url" content="https://benjuntilla.com"/>
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://benjuntilla.com/icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
 <div class="w-full h-screen flex justify-center">

@@ -16,7 +16,15 @@
 </script>
 
 <svelte:head>
-  <title>Portfolio</title>
+  <title>Ben Juntilla's Portfolio</title>
+  <meta property="og:title" content="Ben Juntilla's Portfolio" />
+  <meta name="description" content="Ben Juntilla's portfolio 🌟" />
+  <meta property="og:description" content="Ben Juntilla's portfolio 🌟" />
+  <meta property="og:site_name" content="Ben Juntilla"/>
+  <meta property="og:url" content="https://benjuntilla.com/portfolio"/>
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://benjuntilla.com/icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
 {#await $reposStore}
