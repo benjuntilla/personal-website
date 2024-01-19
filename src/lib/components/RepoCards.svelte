@@ -7,7 +7,7 @@
   const TRANSITION_TIME = 200;
 </script>
 
-<div class="flex flex-wrap justify-center px-[15rem]">
+<div class="flex flex-wrap justify-center lg:px-[10vw]">
   {#each repos as repo, i}
     <a
       in:fade|global={{ duration: TRANSITION_TIME, delay: TRANSITION_TIME * 0.5 * i }}
