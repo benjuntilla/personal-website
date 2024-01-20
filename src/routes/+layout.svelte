@@ -69,7 +69,7 @@
                 items-center p-2">
       <div class="flex items-center">
         <img src={www} alt="World Wide Web logo"
-             class="m-2 w-10" />
+             class="m-2 w-14" />
         A proud member!
       </div>
       <a class="mx-4" href="https://github.com/benjuntilla/personal-website" target="_blank">
