@@ -11,7 +11,7 @@
   {#each repos as repo, i}
     <a
       in:fade|global={{ duration: TRANSITION_TIME, delay: TRANSITION_TIME * 0.5 * i }}
-      class="flex flex-col card card-hover overflow-hidden flex-initial w-[20rem] m-6 h-max"
+      class="variant-glass-primary flex flex-col card card-hover overflow-hidden flex-initial w-[20rem] m-6 h-max"
       href={repo.html_url}
       target="_blank"
       rel="noreferrer noopener"

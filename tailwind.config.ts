@@ -2,6 +2,7 @@ import { join } from "path";
 import type { Config } from "tailwindcss";
 import typography from "@tailwindcss/typography";
 import { skeleton } from "@skeletonlabs/tw-plugin";
+import { benTheme } from "./benTheme.ts";
 
 export default {
   darkMode: "class",
@@ -22,12 +23,7 @@ export default {
     typography,
     skeleton({
       themes: {
-        preset: [
-          {
-            name: "skeleton",
-            enhancements: true,
-          },
-        ],
+        custom: [ benTheme ],
       },
     }),
   ],

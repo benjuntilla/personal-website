@@ -27,12 +27,12 @@
     <AppBar gridColumns="3" gap="5rem">
       <TabGroup
         justify="justify-center items-center"
-        active="variant-filled-primary"
+        active="variant-ghost-primary"
         hover="hover:variant-soft-primary"
         flex="flex-1"
         rounded=""
         border=""
-        class="bg-surface-100-800-token w-full items-stretch font-mono
+        class="w-full items-stretch font-mono
         font-bold items-center"
       >
         <a href="/">
@@ -60,7 +60,7 @@
     </div>
   {/key}
   <svelte:fragment slot="pageFooter">
-    <div class="bg-surface-100-800-token flex justify-center items-center">
+    <div class="bg-surface-50-900-token flex justify-center items-center">
       Proud to be a part of the
       <img src={www} alt="World Wide Web logo"
       class="m-2 h-20" />

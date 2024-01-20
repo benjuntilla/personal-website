@@ -3,18 +3,14 @@
 @tailwind utilities;
 @tailwind variants;
 
-html,
-body {
-  @apply h-full overflow-hidden;
-}
+@layer base {
+  html, body {
+    @apply h-full overflow-hidden;
+  }
 
-:root [data-theme="skeleton"] {
-  --theme-font-family-base: "Metropolis", sans-serif;
-  --theme-font-family-heading: "IBM Plex Mono", mono;
-}
-
-.dark body {
-  background: black url('lib/img/background.png') repeat;
+  body {
+    background: black url('lib/img/background.png') repeat;
+  }
 }
 
 @layer components {
@@ -24,5 +20,9 @@ body {
   }
   .commented {
     @apply relative
+  }
+
+  .a {
+    @apply text-secondary-500
   }
 }

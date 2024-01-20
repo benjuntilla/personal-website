@@ -1,3 +1,9 @@
+<script lang="ts">
+  import { fade } from "svelte/transition";
+
+  const TRANSITION_TIME = 200;
+</script>
+
 <svelte:head>
   <title>Ben Juntilla's About Page</title>
   <meta property="og:title" content="Ben Juntilla's About Page" />
@@ -12,17 +18,21 @@
 
 <div class="w-full h-max flex justify-center">
   <article class="prose dark:prose-invert max-w-[650px] prose-code:before:hidden prose-code:after:hidden">
-    <div class="card p-10">
+    <div
+      in:fade|global={{ duration: TRANSITION_TIME, delay: TRANSITION_TIME}}
+      class="variant-glass-primary card p-10">
       <h1 class="h1">about</h1>
       <p class="commented">
-        Hey! 👋 I'm Ben, nice to meet you! I'm an honors
-        undergraduate studying computer science in the beautiful,
-        sunny campus of Arizona State University. I've been building
-        software for several years now, and my experience includes
-        full-stack and low-level development, in such languages
-        as <code>Python</code>, <code>Javascript</code>, <code>Typescript</code>
-        and <code>C</code>. Check out my website's <a class="anchor"
-        href="/portfolio">portfolio</a> to get a taste of what I do!
+        Hey! 👋 I'm Ben, nice to meet you! I'm an honors undergraduate
+        studying computer science in the beautiful, sunny campus of
+        Arizona State University. I've been building software for
+        several years now, and my experience includes full-stack and
+        low-level development, in such languages
+        as <code class="code">Python</code>, <code class="code">Javascript</code>,
+        <code class="code">Typescript</code>
+        and <code class="code">C</code>. Check out my
+        website's <a class="a" href="/portfolio">portfolio</a> to get
+        a taste of what I do!
       </p>
       <p class="commented">
         Much of my previous work laid in web development, but I'm
@@ -32,7 +42,7 @@
       <p class="commented">
         I'm always excited for new opportunities to learn, grow, and
         best of all, build. Refer to my social profiles linked on my
-        website's <a class="anchor" href="/">home page</a>, and let's
+        website's <a class="a" href="/">home page</a>, and let's
         connect!
       </p>
     </div>

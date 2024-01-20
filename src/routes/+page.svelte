@@ -2,6 +2,9 @@
   import App from "$lib/components/App.svelte";
   import { LinkedinSolid, GithubSolid, InfoCircleOutline } from "flowbite-svelte-icons";
   import { typewriter } from "$lib/animations";
+  import { fade } from "svelte/transition";
+
+  const TRANSITION_TIME = 200;
 </script>
 
 <svelte:head>
@@ -40,24 +43,30 @@
     <div
       class="justify-center mt-[5%] lg:mt-[15%] logo-cloud grid-cols-1 lg:!grid-cols-3 gap-1 font-mono font-bold"
     >
-      <a class="logo-item" href="/about">
+      <a class="variant-glass-primary logo-item" href="/about"
+         in:fade|global={{ duration: TRANSITION_TIME, delay:
+         TRANSITION_TIME * 0.5 * 1}}>
         <span><InfoCircleOutline /></span>
         <span>About</span>
       </a>
       <a
-        class="logo-item"
+        class="variant-glass-primary logo-item"
         href="https://github.com/benjuntilla"
         target="_blank"
         rel="noreferrer noopener"
+        in:fade|global={{ duration: TRANSITION_TIME, delay:
+        TRANSITION_TIME * 0.5 * 2}}
       >
         <span><GithubSolid /></span>
         <span>GitHub</span>
       </a>
       <a
-        class="logo-item"
+        class="variant-glass-primary logo-item"
         href="https://linkedin.com/in/benjuntilla"
         target="_blank"
         rel="noreferrer noopener"
+        in:fade|global={{ duration: TRANSITION_TIME, delay:
+        TRANSITION_TIME * 0.5 * 3}}
       >
         <span><LinkedinSolid /></span>
         <span>LinkedIn</span>
