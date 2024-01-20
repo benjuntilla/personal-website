@@ -47,6 +47,7 @@
     "@fontsource/metropolis": "^5.0.7",
     "@fontsource/vt323": "^5.0.8",
     "@vercel/analytics": "^1.1.1",
+    "@vercel/speed-insights": "^1.0.5",
     "graphql-request": "^6.1.0"
   }
 }
