@@ -9,6 +9,7 @@
   import { cubicIn, cubicOut } from "svelte/easing";
   import monitor from "$lib/img/monitor.png"
   import www from "$lib/img/www.gif"
+  import { CodeBranchSolid } from "flowbite-svelte-icons";
 
   export let data;
 
@@ -64,10 +65,27 @@
     </div>
   {/key}
   <svelte:fragment slot="pageFooter">
-    <div class="bg-surface-50-900-token flex justify-center items-center">
-      Proud to be a part of the
-      <img src={www} alt="World Wide Web logo"
-      class="m-2 h-20" />
+    <div class="bg-surface-50-900-token flex justify-around
+                items-center">
+      <div class="flex items-center">
+        <img src={www} alt="World Wide Web logo"
+             class="m-2 h-20" />
+        A proud member!
+      </div>
+      <a href="https://github.com/benjuntilla/personal-website"
+        target="_blank" rel="noreferrer noopener">
+        <CodeBranchSolid />
+      </a>
+      <div class="flex flex-row">
+        <div class="flex flex-col justify-center mr-2 text-right">
+          <p>Made with ❤️ thanks to</p>
+        </div>
+        <div class="flex flex-col">
+          <a class="a" href="https://kit.svelte.dev/">SvelteKit</a>
+          <a class="a" href="https://www.skeleton.dev/">Skeleton</a>
+          <a class="a" href="https://threlte.xyz/">Threlte</a>
+        </div>
+      </div>
     </div>
   </svelte:fragment>
 </AppShell>
