@@ -66,13 +66,13 @@
   {/key}
   <svelte:fragment slot="pageFooter">
     <div class="bg-surface-50-900-token flex justify-around
-                items-center">
+                items-center p-2">
       <div class="flex items-center">
         <img src={www} alt="World Wide Web logo"
-             class="m-2 h-20" />
+             class="m-2 w-10" />
         A proud member!
       </div>
-      <a href="https://github.com/benjuntilla/personal-website" target="_blank">
+      <a class="mx-4" href="https://github.com/benjuntilla/personal-website" target="_blank">
         <CodeBranchSolid />
       </a>
       <div class="flex flex-row">
