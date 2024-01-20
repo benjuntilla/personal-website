@@ -53,7 +53,6 @@
         class="variant-glass-primary logo-item"
         href="https://github.com/benjuntilla"
         target="_blank"
-        rel="noreferrer noopener"
         in:fade|global={{ duration: TRANSITION_TIME, delay:
         TRANSITION_TIME * 0.5 * 2}}
       >
@@ -64,7 +63,6 @@
         class="variant-glass-primary logo-item"
         href="https://linkedin.com/in/benjuntilla"
         target="_blank"
-        rel="noreferrer noopener"
         in:fade|global={{ duration: TRANSITION_TIME, delay:
         TRANSITION_TIME * 0.5 * 3}}
       >

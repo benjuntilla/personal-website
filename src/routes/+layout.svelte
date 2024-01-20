@@ -72,8 +72,7 @@
              class="m-2 h-20" />
         A proud member!
       </div>
-      <a href="https://github.com/benjuntilla/personal-website"
-        target="_blank" rel="noreferrer noopener">
+      <a href="https://github.com/benjuntilla/personal-website" target="_blank">
         <CodeBranchSolid />
       </a>
       <div class="flex flex-row">
@@ -81,9 +80,9 @@
           <p>Made with ❤️ thanks to</p>
         </div>
         <div class="flex flex-col">
-          <a class="a" href="https://kit.svelte.dev/">SvelteKit</a>
-          <a class="a" href="https://www.skeleton.dev/">Skeleton</a>
-          <a class="a" href="https://threlte.xyz/">Threlte</a>
+          <a class="a" href="https://kit.svelte.dev/" target="_blank">SvelteKit</a>
+          <a class="a" href="https://www.skeleton.dev/" target="_blank">Skeleton</a>
+          <a class="a" href="https://threlte.xyz/" target="_blank">Threlte</a>
         </div>
       </div>
     </div>

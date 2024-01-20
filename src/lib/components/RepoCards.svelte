@@ -14,7 +14,6 @@
       class="variant-glass-primary flex flex-col card card-hover overflow-hidden flex-initial w-[20rem] m-6 h-max"
       href={repo.html_url}
       target="_blank"
-      rel="noreferrer noopener"
     >
       <header class="card-header">
         <img
