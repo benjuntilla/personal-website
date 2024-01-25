@@ -61,25 +61,27 @@ export async function fetchGithubRepos(): Promise<Repo[]> {
       // Get localized creation date
       const created_at_date = new Date(project.created_at);
 
-      // Get Open Graph image URL
-      const query = gql`
-        query getRepository($owner: String!, $name: String!) {
-          repository(owner: $owner, name: $name) {
-            openGraphImageUrl
-            usesCustomOpenGraphImage
+      // Initialize default values for Open Graph image URL and custom
+      // image flag
+      let openGraphImageUrl = "";
+      let usesCustomOpenGraphImage = false;
+
+      try {
+        const query = gql`
+          query getRepository($owner: String!, $name: String!) {
+            repository(owner: $owner, name: $name) {
+              openGraphImageUrl
+              usesCustomOpenGraphImage
+            }
           }
-        }
-      `
-      const variables = { owner: project.owner.login, name: project.name}
-      interface Data {
-        repository: {
-          openGraphImageUrl: string,
-          usesCustomOpenGraphImage: boolean
-        }
+        `;
+        const variables = { owner: project.owner.login, name: project.name };
+        const data = await graphQLClient.request(query, variables);
+        openGraphImageUrl = data.repository.openGraphImageUrl;
+        usesCustomOpenGraphImage = data.repository.usesCustomOpenGraphImage;
+      } catch (error) {
+        console.error("Error fetching Open Graph image URL:", error);
       }
-      const data = await graphQLClient.request<Data>(query, variables);
-      const openGraphImageUrl = data.repository.openGraphImageUrl;
-      const usesCustomOpenGraphImage = data.repository.usesCustomOpenGraphImage;
 
       return { ...project, languages, created_at_date, openGraphImageUrl, usesCustomOpenGraphImage };
     })
