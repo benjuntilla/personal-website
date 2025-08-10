@@ -9,7 +9,7 @@
   import { cubicIn, cubicOut } from "svelte/easing";
   import monitor from "$lib/img/monitor.png"
   import www from "$lib/img/www.gif"
-  import { CodeBranchSolid } from "flowbite-svelte-icons";
+  import { CodeBranchSolid, ArrowUpRightFromSquareOutline } from "flowbite-svelte-icons";
 
   export let data;
 
@@ -46,6 +46,10 @@
         </a>
         <TabAnchor href="/" selected={$page.url.pathname === "/"}>
           <span>home</span>
+        </TabAnchor>
+        <TabAnchor href="https://benjuntilla.bearblog.dev/blog/" target="_blank" rel="noopener noreferrer">
+          <ArrowUpRightFromSquareOutline class="w-4 h-4 inline-block mr-1 relative -top-[1px]" />
+          <span>blog</span>
         </TabAnchor>
         <TabAnchor href="/portfolio" selected={$page.url.pathname === "/portfolio"}>
           <span>portfolio</span>
