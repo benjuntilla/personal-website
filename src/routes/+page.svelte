@@ -31,14 +31,6 @@
         >BEN JUNTILLA</span
       >
     </h1>
-    <h1 class="text-[6cqw] leading-[6cqw] lg:text-[4cqw] lg:leading-[4cqw]">
-      <span
-        in:typewriter={{}}
-        class="bg-gradient-to-br from-pink-500 to-violet-500 bg-clip-text text-transparent box-decoration-clone font-mono"
-      >
-        software developer
-      </span>
-    </h1>
 
     <div
       class="justify-center mt-[5%] lg:mt-[15%] logo-cloud grid-cols-1 lg:!grid-cols-2 gap-1 font-mono font-bold"
