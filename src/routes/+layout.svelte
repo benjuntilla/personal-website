@@ -57,9 +57,9 @@
         <!-- <TabAnchor href="/blog" selected={$page.url.pathname === "/blog"}>
           <span>blog</span>
         </TabAnchor> -->
-        <TabAnchor href="/about" selected={$page.url.pathname === "/about"}>
+        <!-- <TabAnchor href="/about" selected={$page.url.pathname === "/about"}>
           <span>about</span>
-        </TabAnchor>
+        </TabAnchor> -->
       </TabGroup>
     </AppBar>
   </svelte:fragment>
